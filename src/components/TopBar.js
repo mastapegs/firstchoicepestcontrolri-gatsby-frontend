@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(3),
   },
   title: {
-    fontSize: '1.5em',
+    fontSize: '1.3em',
     textShadow: '1px 1px 1px black',
     fontWeight: 'bold',
     letterSpacing: '0.1em',
