@@ -6,7 +6,7 @@ const query = graphql`
 {
   file(relativePath: {eq: "wasp-hero.jpg"}) {
     childImageSharp {
-      fluid(maxWidth: 1920) {
+      fluid {
         ...GatsbyImageSharpFluid
       }
     }
