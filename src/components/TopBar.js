@@ -3,9 +3,9 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
+import PhoneIcon from '@material-ui/icons/Phone'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
     textShadow: '1px 1px 1px black',
     fontWeight: 'bold',
     letterSpacing: '0.1em',
+    flexGrow: 1,
   },
 }))
 
@@ -33,6 +34,9 @@ const TopBar = () => {
             <MenuIcon />
           </IconButton>
           <div className={classes.title}>{'First Choice Pest Control'}</div>
+          <IconButton href='tel:4013327084' color="inherit" aria-label="phone">
+            <PhoneIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <div className={classes.spacer} />
