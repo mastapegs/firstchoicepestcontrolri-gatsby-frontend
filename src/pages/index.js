@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     textShadow: '1px 1px 1px black',
     borderRadius: '30px',
+    margin: theme.spacing(0, 2),
   },
   heroText: {
     margin: theme.spacing(1, 3),
