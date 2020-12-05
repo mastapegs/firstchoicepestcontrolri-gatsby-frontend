@@ -1,6 +1,27 @@
 import React from "react"
 import { graphql, useStaticQuery } from 'gatsby'
-import Img from 'gatsby-image'
+import BackgroundImage from 'gatsby-background-image'
+import { makeStyles } from '@material-ui/styles'
+
+const useStyles = makeStyles(theme => ({
+  hero: {
+    height: '400px',
+    width: '100%',
+    backgroundSize: 'cover',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heroTextContainer: {
+    backgroundColor: 'hsla(0, 0%, 0%, 0.3)',
+    color: 'white',
+    textShadow: '1px 1px 1px black',
+    borderRadius: '30px',
+  },
+  heroText: {
+    margin: theme.spacing(1, 3),
+  },
+}))
 
 const query = graphql`
 {
@@ -15,13 +36,15 @@ const query = graphql`
 `
 
 const Index = () => {
+  const classes = useStyles()
   const { file: { childImageSharp: { fluid: waspFluid } } } = useStaticQuery(query)
   return (
     <>
-      <h1>Home</h1>
-      <div>
-        <Img fluid={waspFluid} />
-      </div>
+      <BackgroundImage className={classes.hero} fluid={waspFluid}>
+        <div className={classes.heroTextContainer}>
+          <h1 className={classes.heroText}>Commercial and Residential Pest Control</h1>
+        </div>
+      </BackgroundImage>
     </>
   )
 }
