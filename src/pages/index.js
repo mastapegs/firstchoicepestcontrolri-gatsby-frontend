@@ -15,12 +15,12 @@ const query = graphql`
 `
 
 const Index = () => {
-  const data = useStaticQuery(query)
+  const { file: { childImageSharp: { fluid: waspFluid } } } = useStaticQuery(query)
   return (
     <>
       <h1>Home</h1>
       <div>
-        <Img fluid={data.file.childImageSharp.fluid} />
+        <Img fluid={waspFluid} />
       </div>
     </>
   )
