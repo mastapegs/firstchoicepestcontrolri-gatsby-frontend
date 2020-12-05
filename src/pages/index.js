@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
   heroText: {
     margin: theme.spacing(1, 3),
+    textAlign: 'center',
   },
 }))
 
