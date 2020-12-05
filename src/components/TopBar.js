@@ -18,6 +18,8 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontSize: '1.5em',
     textShadow: '1px 1px 1px black',
+    fontWeight: 'bold',
+    letterSpacing: '0.1em',
   },
 }))
 
