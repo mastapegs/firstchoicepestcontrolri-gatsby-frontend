@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'hsla(0, 0%, 0%, 0.3)',
     color: 'white',
     textShadow: '1px 1px 1px black',
+    boxShadow: '0 0 6px hsla(0, 0%, 0%, 0.5)',
     borderRadius: '30px',
     margin: theme.spacing(0, 2),
   },
