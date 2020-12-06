@@ -1,6 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
+import { Button } from '@material-ui/core'
+import PhoneIcon from '@material-ui/icons/Phone'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -20,10 +22,18 @@ const useStyles = makeStyles(theme => ({
     boxShadow: '0 0 6px hsla(0, 0%, 0%, 0.5)',
     borderRadius: '30px',
     margin: theme.spacing(0, 2),
+    padding: theme.spacing(3, 0)
   },
   heroText: {
     margin: theme.spacing(1, 3),
     textAlign: 'center',
+  },
+  heroButton: {
+    margin: '0 auto',
+  },
+  buttonContainer: {
+    display: 'flex',
+    justifyContent: 'center',
   },
 }))
 
@@ -47,6 +57,16 @@ const Index = () => {
       <BackgroundImage className={classes.hero} fluid={waspFluid}>
         <div className={classes.heroTextContainer}>
           <h1 className={classes.heroText}>Commercial and Residential Pest Control</h1>
+          <div className={classes.buttonContainer}>
+            <Button
+              variant='contained'
+              color='primary'
+              startIcon={<PhoneIcon />}
+              className={classes.heroButton}
+            >
+              {'Call Now for a FREE Quote!'}
+            </Button>
+          </div>
         </div>
       </BackgroundImage>
     </>
