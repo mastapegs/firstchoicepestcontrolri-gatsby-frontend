@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import { Button } from '@material-ui/core'
 import PhoneIcon from '@material-ui/icons/Phone'
+import { Helmet } from 'react-helmet'
 import { makeStyles } from '@material-ui/styles'
 
 const useStyles = makeStyles(theme => ({
@@ -54,6 +55,10 @@ const Index = () => {
   const { file: { childImageSharp: { fluid: waspFluid } } } = useStaticQuery(query)
   return (
     <>
+      <Helmet>
+        <title>First Choice Pest Control</title>
+        <meta name="description" content="Commercial and Residential Pest Control" />
+      </Helmet>
       <BackgroundImage className={classes.hero} fluid={waspFluid}>
         <div className={classes.heroTextContainer}>
           <h1 className={classes.heroText}>Commercial and Residential Pest Control</h1>
