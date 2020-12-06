@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'center',
   },
   heroTextContainer: {
     backgroundColor: 'hsla(0, 0%, 0%, 0.3)',
