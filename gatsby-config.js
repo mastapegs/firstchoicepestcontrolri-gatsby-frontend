@@ -28,8 +28,8 @@ module.exports = {
         name: `FirstChoicePestControl`,
         short_name: `FirstChoicePestControl`,
         start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
+        background_color: `#3f51b5`,
+        theme_color: `#3f51b5`,
         display: `standalone`,
         icon: 'src/images/termite.png',
         icon_options: {
