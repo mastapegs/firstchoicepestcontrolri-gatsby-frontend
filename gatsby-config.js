@@ -32,6 +32,9 @@ module.exports = {
         theme_color: `#a2466c`,
         display: `standalone`,
         icon: 'src/images/termite.png',
+        icon_options: {
+          purpose: 'maskable',
+        },
       },
     },
     'gatsby-plugin-offline',
