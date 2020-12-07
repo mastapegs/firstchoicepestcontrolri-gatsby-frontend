@@ -68,6 +68,8 @@ const Index = () => {
               color='primary'
               startIcon={<PhoneIcon />}
               className={classes.heroButton}
+              href='tel:4013327084'
+              aria-label='call-for-quote'
             >
               {'Call Now for a FREE Quote!'}
             </Button>
