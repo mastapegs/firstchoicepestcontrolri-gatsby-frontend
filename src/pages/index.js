@@ -6,7 +6,38 @@ import PhoneIcon from '@material-ui/icons/Phone'
 import { Helmet } from 'react-helmet'
 import { makeStyles } from '@material-ui/styles'
 
-const useStyles = makeStyles(theme => ({
+const query = graphql`
+{
+  file(relativePath: {eq: "wasp-hero.jpg"}) {
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+}
+`
+
+const Index = () => {
+  const { file: { childImageSharp: { fluid: waspFluid } } } = useStaticQuery(query)
+  return (
+    <>
+      <Helmet>
+        <title>First Choice Pest Control</title>
+        <meta name="description" content="Commercial and Residential Pest Control" />
+      </Helmet>
+      <HeroComponent fluid={waspFluid} />
+    </>
+  )
+}
+
+export default Index
+
+// 
+// 
+// 
+
+const useHeroStyles = makeStyles(theme => ({
   hero: {
     height: '400px',
     width: '100%',
@@ -38,46 +69,25 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const query = graphql`
-{
-  file(relativePath: {eq: "wasp-hero.jpg"}) {
-    childImageSharp {
-      fluid {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-}
-`
-
-const Index = () => {
-  const classes = useStyles()
-  const { file: { childImageSharp: { fluid: waspFluid } } } = useStaticQuery(query)
+const HeroComponent = ({ fluid }) => {
+  const classes = useHeroStyles()
   return (
-    <>
-      <Helmet>
-        <title>First Choice Pest Control</title>
-        <meta name="description" content="Commercial and Residential Pest Control" />
-      </Helmet>
-      <BackgroundImage className={classes.hero} fluid={waspFluid}>
-        <div className={classes.heroTextContainer}>
-          <h1 className={classes.heroText}>Commercial and Residential Pest Control</h1>
-          <div className={classes.buttonContainer}>
-            <Button
-              variant='contained'
-              color='primary'
-              startIcon={<PhoneIcon />}
-              className={classes.heroButton}
-              href='tel:4013327084'
-              aria-label='call-for-quote'
-            >
-              {'Call Now for a FREE Quote!'}
-            </Button>
-          </div>
+    <BackgroundImage className={classes.hero} fluid={fluid}>
+      <div className={classes.heroTextContainer}>
+        <h1 className={classes.heroText}>Commercial and Residential Pest Control</h1>
+        <div className={classes.buttonContainer}>
+          <Button
+            variant='contained'
+            color='primary'
+            startIcon={<PhoneIcon />}
+            className={classes.heroButton}
+            href='tel:4013327084'
+            aria-label='call-for-quote'
+          >
+            {'Call Now for a FREE Quote!'}
+          </Button>
         </div>
-      </BackgroundImage>
-    </>
+      </div>
+    </BackgroundImage>
   )
 }
-
-export default Index
