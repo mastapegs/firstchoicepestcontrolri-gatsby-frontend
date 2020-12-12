@@ -26,7 +26,12 @@ const Index = () => {
         <title>First Choice Pest Control</title>
         <meta name="description" content="Commercial and Residential Pest Control" />
       </Helmet>
-      <HeroComponent fluid={waspFluid} />
+      <HeroComponent
+        fluid={waspFluid}
+        heroMessage='Commercial and Residential Pest Control'
+        heroButtonMessage='Call Now for a FREE Quote!'
+        telephoneNumber='4013327084'
+      />
     </>
   )
 }
@@ -69,22 +74,22 @@ const useHeroStyles = makeStyles(theme => ({
   },
 }))
 
-const HeroComponent = ({ fluid }) => {
+const HeroComponent = ({ fluid, heroMessage, telephoneNumber, heroButtonMessage }) => {
   const classes = useHeroStyles()
   return (
     <BackgroundImage className={classes.hero} fluid={fluid}>
       <div className={classes.heroTextContainer}>
-        <h1 className={classes.heroText}>Commercial and Residential Pest Control</h1>
+        <h1 className={classes.heroText}>{heroMessage}</h1>
         <div className={classes.buttonContainer}>
           <Button
             variant='contained'
             color='primary'
             startIcon={<PhoneIcon />}
             className={classes.heroButton}
-            href='tel:4013327084'
+            href={`tel:${telephoneNumber}`}
             aria-label='call-for-quote'
           >
-            {'Call Now for a FREE Quote!'}
+            {heroButtonMessage}
           </Button>
         </div>
       </div>
