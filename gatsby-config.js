@@ -5,7 +5,11 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: 'First Choice Pest Control',
+    phoneNumber: '4013327084',
+    description: 'Commercial and Residential Pest Control',
+  },
   plugins: [
     'gatsby-theme-material-ui',
     'gatsby-transformer-sharp',
