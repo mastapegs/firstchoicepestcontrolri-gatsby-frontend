@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import {
   AppBar,
   Toolbar,
@@ -24,8 +25,19 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+const PHONE_NUMBER = graphql`
+  query PhoneNumberQuery {
+    site {
+      siteMetadata {
+        phoneNumber
+      }
+    }
+  }
+`
+
 const TopBar = () => {
   const classes = useStyles()
+  const { site: { siteMetadata: { phoneNumber } } } = useStaticQuery(PHONE_NUMBER)
   return (
     <>
       <AppBar position="fixed">
@@ -34,7 +46,7 @@ const TopBar = () => {
             <MenuIcon />
           </IconButton>
           <div className={classes.title}>{'First Choice Pest Control'}</div>
-          <IconButton href='tel:4013327084' color="inherit" aria-label="phone">
+          <IconButton href={`tel:${phoneNumber}`} color="inherit" aria-label="phone">
             <PhoneIcon />
           </IconButton>
         </Toolbar>

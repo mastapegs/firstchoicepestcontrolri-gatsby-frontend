@@ -15,11 +15,19 @@ const query = graphql`
       }
     }
   }
+  site {
+    siteMetadata {
+      phoneNumber
+    }
+  }
 }
 `
 
 const Index = () => {
-  const { file: { childImageSharp: { fluid: waspFluid } } } = useStaticQuery(query)
+  const {
+    site: { siteMetadata: { phoneNumber } },
+    file: { childImageSharp: { fluid: waspFluid } },
+  } = useStaticQuery(query)
   return (
     <>
       <Helmet>
@@ -30,7 +38,7 @@ const Index = () => {
         fluid={waspFluid}
         heroMessage='Commercial and Residential Pest Control'
         heroButtonMessage='Call Now for a FREE Quote!'
-        telephoneNumber='4013327084'
+        phoneNumber={phoneNumber}
       />
     </>
   )
@@ -74,7 +82,7 @@ const useHeroStyles = makeStyles(theme => ({
   },
 }))
 
-const HeroComponent = ({ fluid, heroMessage, telephoneNumber, heroButtonMessage }) => {
+const HeroComponent = ({ fluid, heroMessage, phoneNumber, heroButtonMessage }) => {
   const classes = useHeroStyles()
   return (
     <BackgroundImage className={classes.hero} fluid={fluid}>
@@ -86,7 +94,7 @@ const HeroComponent = ({ fluid, heroMessage, telephoneNumber, heroButtonMessage 
             color='primary'
             startIcon={<PhoneIcon />}
             className={classes.heroButton}
-            href={`tel:${telephoneNumber}`}
+            href={`tel:${phoneNumber}`}
             aria-label='call-for-quote'
           >
             {heroButtonMessage}
