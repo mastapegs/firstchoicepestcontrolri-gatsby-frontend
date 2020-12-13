@@ -17,7 +17,9 @@ const query = graphql`
   }
   site {
     siteMetadata {
+      title
       phoneNumber
+      description
     }
   }
 }
@@ -25,18 +27,18 @@ const query = graphql`
 
 const Index = () => {
   const {
-    site: { siteMetadata: { phoneNumber } },
+    site: { siteMetadata: { title, description, phoneNumber } },
     file: { childImageSharp: { fluid: waspFluid } },
   } = useStaticQuery(query)
   return (
     <>
       <Helmet>
-        <title>First Choice Pest Control</title>
-        <meta name="description" content="Commercial and Residential Pest Control" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
       </Helmet>
       <HeroComponent
         fluid={waspFluid}
-        heroMessage='Commercial and Residential Pest Control'
+        heroMessage={description}
         heroButtonMessage='Call Now for a FREE Quote!'
         phoneNumber={phoneNumber}
       />
